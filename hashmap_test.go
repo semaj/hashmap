@@ -285,8 +285,9 @@ func TestStringer(t *testing.T) {
 			m.Set(tt.key(1), monkey)
 			s = m.String()
 			hashedKey1 := getKeyHash(tt.key(1))
-			if s != fmt.Sprintf("[%v,%v]", hashedKey1, hashedKey0) {
-				t.Error("2 item map as string does not match:", s)
+			x := fmt.Sprintf("[%v,%v]", hashedKey0, hashedKey1)
+			if s != x {
+				t.Error("2 item map as string does not match:", s, x)
 			}
 		})
 	}
